@@ -1,1 +1,12 @@
 # DCGAN-MNIST
+GANs are a type of deep neural network framework that can learn to generate new data with the same characteristics as the training data. They consist of two neural networks: a generator and a discriminator. The generator tries to create fake data that look realistic, while the discriminator tries to distinguish between real and fake data. The two networks compete against each other in a zero-sum game, where the generator’s loss is the discriminator’s gain, and vice versa. The goal is to reach an equilibrium where the discriminator cannot tell the difference between real and fake data.
+
+One of the applications of GANs is to generate images of handwritten digits using the MNIST dataset, which contains 70,000 images of digits from 0 to 9. The generator takes a random noise vector as input and produces a 28x28 pixel image as output. The discriminator takes either a real image from the MNIST dataset or a fake image from the generator as input and outputs a probability of the image being real or fake. The generator and the discriminator are trained alternately, with the generator trying to fool the discriminator and the discriminator trying to correctly classify the images.
+
+In this simple example, we build a deep convolutional gan by utilizing TensorFlow's functional API and train GAN on the MNIST dataset. The generator of the GAN expects a random noise vector, which is then fed to the deep layer in the network. The activation is then reshaped in the keras.reshape layer and then passed to the transposed convolutional layer, which upsamples the activation by performing transposed convolutional operations. The activation is then executed in a similar fashion and ends up producing fake images.
+
+The job of the generator is to produce fake images and fool the discriminator. Surprisingly, the generator is never allowed to look at the original dataset during training and learns only from the feedback given by the discriminator. In addition, the trade-off between the training of the generator and the discriminator becomes important since the discriminator's job is much easier than that of the generator. For instance, if the discriminator learns so fast compared to the generator, the generator may not receive proper feedback from the discriminator in order to learn.
+
+# Results
+![download (3)](https://github.com/priyanshusingh-collab/DCGAN-MNIST/assets/58718943/7d37925f-a7d3-4ef1-8587-c3108deffada)
+![download (4)](https://github.com/priyanshusingh-collab/DCGAN-MNIST/assets/58718943/796bb0fb-e794-4db4-9f97-a5dd11e5dc50)
